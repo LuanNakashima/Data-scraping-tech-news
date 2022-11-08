@@ -37,3 +37,6 @@ def search_news(query):
 
 def get_collection():
     return db.news
+
+
+# bora
