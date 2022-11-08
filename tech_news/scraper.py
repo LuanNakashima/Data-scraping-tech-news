@@ -14,7 +14,6 @@ def fetch(url):
         return None
     except:
         return None
-    """Seu código deve vir aqui"""
 
 
 # rprint(fetch("https://blog.betrybe.com/"))
@@ -23,15 +22,17 @@ def fetch(url):
 def scrape_novidades(html_content):
         selector = Selector(html_content)
         return selector.css(".entry-title a::attr(href)").getall()
-        """Seu código deve vir aqui"""
 
 
-# rprint(fetch("https://blog.betrybe.com/"))
+# rprint(scrape_novidades(fetch("https://blog.betrybe.com/")))
 
 # Requisito 3
 def scrape_next_page_link(html_content):
-    """Seu código deve vir aqui"""
+        selector = Selector(html_content)
+        return selector.css("a.next::attr(href)").get()
 
+
+# rprint(scrape_next_page_link(fetch("https://blog.betrybe.com/")))
 
 # Requisito 4
 def scrape_noticia(html_content):
