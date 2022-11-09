@@ -2,16 +2,17 @@ import requests
 import time
 from parsel import Selector
 from bs4 import BeautifulSoup
-from rich import print as rprint
+# from rich import print as rprint
 
 # Requisito 1
 def fetch(url):
     try:
         time.sleep(1)
-        response = requests.get(url, headers={ "user-agent": "Fake user-agent" }, timeout=3)
+        response = requests.get(url,
+        headers={"user-agent": "Fake user-agent"}, timeout=3)
         if response.status_code == 200:
             return response.text
-        return None
+        raise ValueError('Erro')
     except:
         return None
 
