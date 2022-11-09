@@ -2,7 +2,7 @@ import requests
 import time
 from parsel import Selector
 from bs4 import BeautifulSoup
-from rich import print as rprint
+# from rich import print as rprint
 from tech_news.database import create_news
 
 
@@ -70,31 +70,18 @@ def scrape_noticia(html_content):
 
 # Requisito 5
 def get_tech_news(amount):
-    response = fetch("https://blog.betrybe.com/")
-    url_news = scrape_novidades(response)
     all_news = []
-    # all_news = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2]
-    for news in url_news:
-        data_news = scrape_noticia(fetch(news))
-        all_news.append(data_news)
-    n = 1
+    response = fetch("https://blog.betrybe.com/")
     while len(all_news) < amount:
-        n += 1
-        next_url = "https://blog.betrybe.com/" + f"page/{n}/"
-        url_news = scrape_novidades(fetch(next_url))
-        # url_news = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2]
-        new_index = amount - len(all_news)
-        if new_index < 12:
-            for i in range(new_index):
-                data_news = scrape_noticia(fetch(url_news[i]))
-                all_news.append(data_news)
-        else:
-            new_index = amount - 12
-            for i in range(12):
-                data_news = scrape_noticia(fetch(url_news[i]))
-                all_news.append(data_news)
-    create_news(all_news[:amount])
-    return all_news[:amount]
+        url_news = scrape_novidades(response)
+        for news in url_news:
+            data_news = scrape_noticia(fetch(news))
+            all_news.append(data_news)
+            if len(all_news) == amount:
+                break
+        response = fetch(scrape_next_page_link(response))
+    create_news(all_news)
+    return all_news
 
 
-# rprint(get_tech_news(30))
+# rprint(get_tech_news(3))
