@@ -2,7 +2,8 @@ import requests
 import time
 from parsel import Selector
 from bs4 import BeautifulSoup
-# from rich import print as rprint
+from rich import print as rprint
+from tech_news.database import create_news
 
 
 # Requisito 1
@@ -69,4 +70,31 @@ def scrape_noticia(html_content):
 
 # Requisito 5
 def get_tech_news(amount):
-    """Seu código deve vir aqui"""
+    response = fetch("https://blog.betrybe.com/")
+    url_news = scrape_novidades(response)
+    all_news = []
+    # all_news = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2]
+    for news in url_news:
+        data_news = scrape_noticia(fetch(news))
+        all_news.append(data_news)
+    n = 1
+    while len(all_news) < amount:
+        n += 1
+        next_url = "https://blog.betrybe.com/" + f"page/{n}/"
+        url_news = scrape_novidades(fetch(next_url))
+        # url_news = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2]
+        new_index = amount - len(all_news)
+        if new_index < 12:
+            for i in range(new_index):
+                data_news = scrape_noticia(fetch(url_news[i]))
+                all_news.append(data_news)
+        else:
+            new_index = amount - 12
+            for i in range(12):
+                data_news = scrape_noticia(fetch(url_news[i]))
+                all_news.append(data_news)
+    create_news(all_news[:amount])
+    return all_news[:amount]
+
+
+# rprint(get_tech_news(30))
