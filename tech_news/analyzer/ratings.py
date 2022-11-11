@@ -21,9 +21,10 @@ def top_5_categories():
     db_category = [news["category"] for news in db]
     category_count = {news: db_category.count(news) for news in db_category}
     sorted_categories = sorted(
-        sorted(list(category_count.items())), key=lambda category: (category[1]), reverse=True
+        sorted(list(category_count.items())),
+        key=lambda category: (category[1]), reverse=True
     )
-    top_5 =  [
+    top_5 = [
         category
         for category, qnt in sorted_categories
     ]
