@@ -34,9 +34,22 @@ def search_by_date(date):
 
 # Requisito 8
 def search_by_tag(tag):
-    """Seu código deve vir aqui"""
+    query = {"tags": {"$regex": tag, "$options": "i"}}
+    db = search_news(query)
+    news_tag = []
+    for news in db:
+        news_tag.append((news["title"], news["url"]))
+    return(news_tag)
+
+
+# rprint(search_by_tag("Tecnologia"))
 
 
 # Requisito 9
 def search_by_category(category):
-    """Seu código deve vir aqui"""
+    query = {"category": {"$regex": category, "$options": "i"}}
+    db = search_news(query)
+    news_category = []
+    for news in db:
+        news_category.append((news["title"], news["url"]))
+    return(news_category)
