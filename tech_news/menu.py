@@ -40,23 +40,10 @@ def analyzer_menu():
         return case2[res](int(res2))
     elif res in ["1", "2", "3", "4"]:
         return case2[res](res2)
-    elif res in ["5", 6]:
+    elif res in ["5", "6"]:
         return case2[res]()
     elif res == "7":
         print("Encerrando script")
     else:
-        print("Opção inválida")
+        print("Opção inválida", file=sys.stderr)
 
-    # try:
-    #     if res == "0":
-    #         return case2[res](int(res2))
-    #     elif res in ["1", "2", "3", "4"]:
-    #         return case2[res](res2)
-    #     elif res in ["5", 6]:
-    #         return case2[res]()
-    #     elif res == "7":
-    #         print("Encerrando script")
-    #     else:
-    #         ValueError
-    # except ValueError:
-    #     print("Opção inválida", file=sys.stderr)
