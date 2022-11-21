@@ -5,6 +5,15 @@ from .analyzer.search_engine import search_by_category, search_by_date,\
         search_by_tag, search_by_title
 
 
+def case_function(res, case2, res2):
+    if res == "0":
+        return case2[res](int(res2))
+    elif res in ["1", "2", "3", "4"]:
+        return case2[res](res2)
+    elif res in ["5", "6"]:
+        return case2[res]()
+
+
 # Requisito 12
 def analyzer_menu():
     res = input(
@@ -36,13 +45,8 @@ def analyzer_menu():
         "6": top_5_categories
     }
 
-    if res == "0":
-        return case2[res](int(res2))
-    elif res in ["1", "2", "3", "4"]:
-        return case2[res](res2)
-    elif res in ["5", "6"]:
-        return case2[res]()
-    elif res == "7":
+    case_function(res, case2, res2)
+    if res == "7":
         print("Encerrando script")
     else:
         print("Opção inválida", file=sys.stderr)
