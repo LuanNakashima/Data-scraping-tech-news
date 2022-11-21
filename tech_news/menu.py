@@ -46,4 +46,3 @@ def analyzer_menu():
         print("Encerrando script")
     else:
         print("Opção inválida", file=sys.stderr)
-
