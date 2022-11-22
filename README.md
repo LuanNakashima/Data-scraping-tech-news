@@ -7,4 +7,4 @@
 #### Foi-se utilizado o site de notícias da <a href="https://blog.betrybe.com/" target="_blank">Trybe<a/> nesse projeto como "cobaia" rsrs
 
 #### Trecho do código:
-<img src="Images/code.png" width="150px"/>
+<img src="Images/code.png" width="750px"/>
