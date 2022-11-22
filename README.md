@@ -1,13 +1,10 @@
-# :construction: README customizado em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto no qual você pode customizar e reutilizar todas as vezes que for executar o trybe-publisher.
+# Olá, tudo bem?
 
-Para deixá-lo com a sua cara, basta alterar o seguinte arquivo da sua máquina: ~/.student-repo-publisher/custom/_NEW_README.md
+#### Fiz esse projeto durante meu período na Trybe e ele consiste em Data scraping ou Raspagem de Dados
+#### Mas o que é essa tal de Raspagem de Dados?
+#### A raspagem de dados, em sua forma mais geral, é uma técnica na qual um programa de computador extrai dados dos resultados gerados por outro programa. A raspagem de dados geralmente se manifesta na forma de raspagem da internet, que é o processo de usar um aplicativo para extrair informações valiosas de um site.
 
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+#### Foi-se utilizado o site de notícias da <a href="https://blog.betrybe.com/" target="_blank">Trybe<a/> nesse projeto como "cobaia" rsrs
+
+#### Trecho do código:
+<img src="Images/code.png" width="150px"/>
